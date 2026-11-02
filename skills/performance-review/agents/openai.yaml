@@ -1,0 +1,4 @@
+interface:
+  display_name: "绩效考核表"
+  short_description: "按模板整理个人绩效，核对工作归属和完成情况，逐项依据事实评分，不预设总分"
+  default_prompt: "使用 $performance-review，结合本期工作记录和绩效模板整理考核表，逐项说明自评分依据，最后汇总总分。"
