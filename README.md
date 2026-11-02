@@ -1,119 +1,109 @@
 # TaoWhale Agent Skills
 
-可复用的 AI Agent 技能库，面向 Codex、Claude Code 等支持 Agent Skills 的工具。一个仓库维护多个技能，每个技能独立安装，按需使用。
+可复用的 AI Agent 技能库，适用于 Codex、Claude Code 等支持 Agent Skills 的工具。每个 Skill 提供一类任务的处理方法，也可按需包含脚本、参考资料或模板，帮助 Agent 更稳定地完成工作。
+
+**选择需要的技能，把对应的安装和使用说明发给 Agent 即可。** 每个技能独立安装、按需使用，不需要一次安装整个仓库。
 
 ## 当前技能
 
-| 技能 | 用途 | 说明 |
+| 技能 | 用途 | 安装与使用 |
 | --- | --- | --- |
-| [weekly-report](skills/weekly-report/SKILL.md) | 中文周报撰写与润色 | 根据工作材料核对归属和进度，按项目归纳，不编造计划和感想 |
-| [performance-review](skills/performance-review/SKILL.md) | 个人绩效考核表撰写与自评 | 按模板整理工作指标和评分标准，逐项依据事实评分，最后汇总，不预设总分 |
+| [weekly-report](skills/weekly-report/SKILL.md) | 撰写、润色中文周报，核对工作归属和进度 | [复制自然语言说明](#weekly-report) |
+| [performance-review](skills/performance-review/SKILL.md) | 按模板整理绩效考核表，依据事实逐项自评 | [复制自然语言说明](#performance-review) |
 
-## 安装：让 Agent 帮你完成
+## 快速开始
 
-已经在使用有本地文件和命令执行能力的 Codex、Claude Code 等工具，可以把下面这段话发给它：
+在支持技能安装、具备相应文件访问能力的 Agent 中，直接发送下方各技能的说明。自然语言只是表达安装需求，实际能否安装取决于所用工具；不支持时，Agent 应说明原因。
 
-> 请从 https://github.com/TaoWhale/agent-skills 安装 weekly-report 技能，供当前 Agent 在各项目中使用。请先查看 README 和技能内容、检查所需环境；如果已有同名技能且存在本地修改，请保留修改，不直接覆盖。
+所有技能都可以使用同一种说法，将 `{技能名}` 换成目录中的名称：
 
-安装完成后，重新打开会话或按当前工具的方式刷新技能。请 Agent 确认能找到 `weekly-report`。
+> 请从 https://github.com/TaoWhale/agent-skills 安装 {技能名}，供当前 Agent 在各项目中使用。先阅读技能说明，按当前工具支持的方式安装，并检查需要的依赖；已有本地修改请保留。完成后确认能否使用，如果需要刷新或新开会话，请告诉我。
 
-## 安装：使用通用命令
+安装后直接说“使用 {技能名}，帮我……”，再提供任务目标和所需材料。支持 `$技能名` 的工具也可以用该方式指定技能。
 
-电脑需要可用的 Node.js/npm 和 Git。使用开源的 [Skills CLI](https://github.com/vercel-labs/skills) 安装，不需要克隆仓库，也不需要为这个公开仓库申请访问权限。
+## 各技能的安装与使用
 
-安装周报技能，交互选择要使用的 Agent：
+### weekly-report
+
+根据当期材料整理周报，按项目归纳工作，核对本人负责与配合事项，不编造计划或感想。有公司模板时按模板填写。
+
+**安装：**
+
+> 请从 https://github.com/TaoWhale/agent-skills 安装 weekly-report 技能，供当前 Agent 在各项目中使用。请先阅读技能说明，保留已有本地修改，安装后确认可用。
+
+**使用：**
+
+> 使用 weekly-report，结合我提供的本周工作记录和已确认的下周安排，整理个人周报。按项目归纳，表达自然简洁，有模板就按模板写；没有依据的计划和感想不要补写。
+
+**需要参考历史会话时：**
+
+> 使用 weekly-report，整理指定日期范围内“示例项目”的周报。可以只读查看该项目在 Codex、Claude Code 中可访问的相关会话和项目记录，核对本人职责，区分已完成、推进中和计划。日期范围：……
+
+“示例项目”为虚构名称，使用时换成自己的项目，并补充起止日期。
+
+### performance-review
+
+按绩效模板整理考核内容、评分标准及自评建议。先核对工作事实，再逐项评分，最后汇总；保留公司的既有制度和主管评定栏目。
+
+**安装：**
+
+> 请从 https://github.com/TaoWhale/agent-skills 安装 performance-review 技能，供当前 Agent 在各项目中使用。请先阅读技能说明，保留已有本地修改，安装后确认可用。
+
+**使用：**
+
+> 使用 performance-review，按我提供的模板和本期工作记录整理个人考核表。写清主要工作和对应评分标准，依据事实逐项给出自评分，不预设总分；证据不足时说明缺口，备注没有必要内容就留空。考核期间：……；模板和资料位置：……
+
+也可提供已有周报作为材料。无需先安装 weekly-report，自评建议不替代主管最终评定。
+
+## 安装和使用可以一起说
+
+将技能名、任务和材料位置写在同一条消息里：
+
+> 请从 https://github.com/TaoWhale/agent-skills 安装 {技能名}，保留已有本地修改。安装后如果当前会话能使用，就用它完成以下任务：……。相关材料：……。如果需要刷新或新开会话，请告诉我下一步怎么操作。
+
+## 可选：使用命令安装
+
+喜欢终端操作时，可使用开源的 [Skills CLI](https://github.com/vercel-labs/skills)，需要可用的 Node.js/npm 和 Git。
 
 ```bash
-npx skills add TaoWhale/agent-skills --skill weekly-report -g
-```
-
-也可以指定目标工具，只运行需要的一条：
-
-```bash
-# Codex
-npx skills add TaoWhale/agent-skills --skill weekly-report -g -a codex
-
-# Claude Code
-npx skills add TaoWhale/agent-skills --skill weekly-report -g -a claude-code
-```
-
-`-g` 表示安装到当前用户范围，可在不同项目中使用。安装器可能提示选择链接或复制方式，按环境选择即可。
-
-查看仓库中的所有技能：
-
-```bash
+# 查看可安装的技能
 npx skills add TaoWhale/agent-skills --list
+
+# 将 <skill-name> 替换为所需技能名，再执行
+npx skills add TaoWhale/agent-skills --skill <skill-name> -g
 ```
 
-后续加入其他技能时，将 `--skill weekly-report` 换成对应名称即可；不需要为每个技能新建仓库。
+`-g` 表示安装到当前用户范围。可加 `-a codex` 或 `-a claude-code` 指定工具；不指定时，按安装器提示选择。安装路径、刷新方式及依赖以所用工具和技能说明为准。
 
-## 使用周报技能
+## 更新技能
 
-在安装技能的 Agent 中直接提出需求，例如：
+也可以直接让 Agent 更新，不需要记住命令：
 
-> 使用 weekly-report，整理我本周的个人周报。以下是本周工作记录和已确认的下周安排：……
-
-需要结合本地历史会话时，明确日期、项目和来源范围，例如：
-
-> 使用 weekly-report，结合本周“示例项目”在 Codex、Claude Code 中可访问的相关会话和我提供的工作记录整理周报。请核对本人负责与配合事项，区分完成、推进中和计划。
-
-以上项目名称仅为虚构示例。日期默认按使用者时区理解，也可以直接提供起止日期。
-
-- 默认以“本周工作总结”为主体，可保留“下周工作计划”和“需要协助、思考、总结、学习成长”。
-- 后两部分有依据才写，不编造任务、截止日期、协作诉求或感想。
-- 没有相关事项时可写“暂无”；缺少材料或安排尚不明确时可写“待补充”；也可以要求省略空栏目。
-- 有公司模板时直接提供，以用户模板为准。
-- 仅生成和整理内容，不自动发送周报。
-
-## 使用绩效考核技能
-
-安装方式与周报技能相同，将技能名替换为 `performance-review`：
-
-```bash
-npx skills add TaoWhale/agent-skills --skill performance-review -g
-```
-
-例如：
-
-> 使用 performance-review，按我提供的模板和本月工作记录整理个人考核表。重点写好工作指标与评分标准，逐项给出自评分依据，最后汇总总分；没有必要内容时备注留空。
-
-- 先核对本人负责、协作事项和实际状态，再对照各项标准评分。
-- 不按提交数量、投入时间或预设总分倒推分数；不编造收益和超额完成情况。
-- 缺少决定性证据时留空或说明待补充，不把缺资料当作零分。
-- 保留公司已有制度、模板和用户修改；主管评分及签字不代填。
-- 可配合 weekly-report 核对资料，也可单独使用。生成 Excel 等文件需要运行环境具备相应的文件编辑能力。
+> 请检查我从 https://github.com/TaoWhale/agent-skills 安装的技能，将 {技能名} 更新到仓库最新版本。先比较本地与仓库的内容，保留我的本地修改，不直接覆盖；更新后确认可用，并说明是否需要刷新会话。
 
 ## 能力与资料范围
 
-这个仓库提供写作规则，**不包含专用的 Codex / Claude Code 会话采集脚本**。能否读取某个工具的历史，取决于运行环境提供的会话接口、本地文件权限和日志格式。Agent 应按授权范围只读访问、先筛选项目和日期；无法读取时说明缺口，使用当前材料或用户提供的导出文件。
+各技能的适用范围、资料要求和依赖以对应 `SKILL.md` 为准。技能不绑定特定模型服务，也不会自动获得本地文件、历史会话或外部账号的访问权限。
 
-只在浏览器聊天中使用时，可以提供工作记录或导出文件，但不能仅靠安装技能自动获得电脑上的其他 Agent 会话。技能本身不绑定模型服务；资料处理仍遵循所用 Agent 及模型服务的数据政策。
+涉及资料读取或文件生成时，Agent 需要具备相应工具和权限。例如读取历史会话需要可用的接口或本地日志，编辑 Excel 需要相应的文件编辑能力；具体能做什么以当前环境为准。仅有浏览器聊天能力时，可以提供材料或导出文件，但安装技能不会让它直接访问电脑上的其他应用。
 
-仓库只保存通用方法和虚构示例。请勿提交真实周报、考核表、个人评分、原始会话、客户资料、密钥或个人配置。
+请在任务中说明允许使用的资料范围。资料处理遵循所用 Agent 及模型服务的数据政策；对外发送、提交系统或发布内容，仍需按用户授权执行。
 
-## 更新
-
-请先备份自己对技能的修改，再执行：
-
-```bash
-npx skills update weekly-report -g
-```
-
-需要图形界面管理多个 Agent 的技能，可自行选择兼容的技能管理器；它不是本仓库的必需依赖。
+仓库只保存通用方法和虚构示例。请勿提交真实工作材料、个人评分、原始会话、客户资料、密钥或个人配置。
 
 ## 添加新技能
 
 ```text
 skills/
-├── weekly-report/
-│   ├── SKILL.md
-│   └── agents/openai.yaml
-└── performance-review/
-    ├── SKILL.md
-    └── agents/openai.yaml
+└── skill-name/
+    ├── SKILL.md          # 必需：名称、用途和处理方法
+    ├── agents/          # 可选：特定工具的展示配置
+    ├── scripts/         # 可选：辅助脚本
+    ├── references/      # 可选：按需读取的参考资料
+    └── assets/          # 可选：模板或其他资源
 ```
 
-新技能使用独立目录，`SKILL.md` 顶部提供 `name` 和 `description`。根据实际需要添加 `references/`、`scripts/` 或 `assets/`，更新上面的技能表和 CHANGELOG。修改通过 Pull Request 审阅，避免把个人配置或真实工作资料写进通用规则。
+新技能使用独立目录，`SKILL.md` 顶部提供 `name` 和 `description`。只添加实际需要的文件，更新技能目录、CHANGELOG，并为每个技能补充可直接发给 Agent 的安装和使用示例。修改通过 Pull Request 审阅，不将个人配置或真实工作资料写进通用规则。
 
 ## 许可证
 
