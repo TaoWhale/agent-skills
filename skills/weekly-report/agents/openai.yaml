@@ -1,0 +1,4 @@
+interface:
+  display_name: "个人周报"
+  short_description: "按项目整理个人工作、核对归属与进展，生成自然得体、可直接提交的中文周报"
+  default_prompt: "使用 $weekly-report，结合本周工作记录、可访问的相关会话和我的补充，整理一份可直接提交的周报。"
