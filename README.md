@@ -6,10 +6,10 @@
 
 ## 技能目录
 
-| 技能 | 用途 |
-| --- | --- |
-| [weekly-report](skills/weekly-report/SKILL.md) | 撰写、润色中文周报 |
-| [performance-review](skills/performance-review/SKILL.md) | 整理个人绩效考核表，依据实际工作逐项自评 |
+| 技能标识 | 显示名称 | 用途 |
+| --- | --- | --- |
+| [weekly-report](skills/weekly-report/SKILL.md) | 个人周报 | 撰写、润色中文周报 |
+| [performance-review](skills/performance-review/SKILL.md) | 绩效考核表 | 整理个人绩效考核表，依据实际工作逐项自评 |
 
 ## 安装与使用
 
