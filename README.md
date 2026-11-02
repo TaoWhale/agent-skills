@@ -1,109 +1,76 @@
 # TaoWhale Agent Skills
 
-可复用的 AI Agent 技能库，适用于 Codex、Claude Code 等支持 Agent Skills 的工具。每个 Skill 提供一类任务的处理方法，也可按需包含脚本、参考资料或模板，帮助 Agent 更稳定地完成工作。
+可复用的 AI Agent 技能库，适用于 Codex、Claude Code 等支持 Agent Skills 的工具。
 
-**选择需要的技能，把对应的安装和使用说明发给 Agent 即可。** 每个技能独立安装、按需使用，不需要一次安装整个仓库。
+**安装一次，之后直接说要做什么。** 写作方式、核对规则和处理步骤已经放进 Skill，不需要每次重新交代。已有上下文直接使用，缺少模板、资料或关键要求时，Agent 再补问。
 
-## 当前技能
+## 技能目录
 
-| 技能 | 用途 | 安装与使用 |
-| --- | --- | --- |
-| [weekly-report](skills/weekly-report/SKILL.md) | 撰写、润色中文周报，核对工作归属和进度 | [复制自然语言说明](#weekly-report) |
-| [performance-review](skills/performance-review/SKILL.md) | 按模板整理绩效考核表，依据事实逐项自评 | [复制自然语言说明](#performance-review) |
+| 技能 | 用途 |
+| --- | --- |
+| [weekly-report](skills/weekly-report/SKILL.md) | 撰写、润色中文周报 |
+| [performance-review](skills/performance-review/SKILL.md) | 整理个人绩效考核表，依据实际工作逐项自评 |
 
-## 快速开始
+## 安装与使用
 
-在支持技能安装、具备相应文件访问能力的 Agent 中，直接发送下方各技能的说明。自然语言只是表达安装需求，实际能否安装取决于所用工具；不支持时，Agent 应说明原因。
-
-所有技能都可以使用同一种说法，将 `{技能名}` 换成目录中的名称：
-
-> 请从 https://github.com/TaoWhale/agent-skills 安装 {技能名}，供当前 Agent 在各项目中使用。先阅读技能说明，按当前工具支持的方式安装，并检查需要的依赖；已有本地修改请保留。完成后确认能否使用，如果需要刷新或新开会话，请告诉我。
-
-安装后直接说“使用 {技能名}，帮我……”，再提供任务目标和所需材料。支持 `$技能名` 的工具也可以用该方式指定技能。
-
-## 各技能的安装与使用
+把下面的话发给 Agent 即可。安装需要当前工具支持技能管理；如需刷新或新开会话，Agent 会提示。
 
 ### weekly-report
 
-根据当期材料整理周报，按项目归纳工作，核对本人负责与配合事项，不编造计划或感想。有公司模板时按模板填写。
+首次安装：
 
-**安装：**
+> 帮我安装 https://github.com/TaoWhale/agent-skills 里的 weekly-report。
 
-> 请从 https://github.com/TaoWhale/agent-skills 安装 weekly-report 技能，供当前 Agent 在各项目中使用。请先阅读技能说明，保留已有本地修改，安装后确认可用。
+以后使用：
 
-**使用：**
-
-> 使用 weekly-report，结合我提供的本周工作记录和已确认的下周安排，整理个人周报。按项目归纳，表达自然简洁，有模板就按模板写；没有依据的计划和感想不要补写。
-
-**需要参考历史会话时：**
-
-> 使用 weekly-report，整理指定日期范围内“示例项目”的周报。可以只读查看该项目在 Codex、Claude Code 中可访问的相关会话和项目记录，核对本人职责，区分已完成、推进中和计划。日期范围：……
-
-“示例项目”为虚构名称，使用时换成自己的项目，并补充起止日期。
+> 用 weekly-report 写本周周报。
 
 ### performance-review
 
-按绩效模板整理考核内容、评分标准及自评建议。先核对工作事实，再逐项评分，最后汇总；保留公司的既有制度和主管评定栏目。
+首次安装：
 
-**安装：**
+> 帮我安装 https://github.com/TaoWhale/agent-skills 里的 performance-review。
 
-> 请从 https://github.com/TaoWhale/agent-skills 安装 performance-review 技能，供当前 Agent 在各项目中使用。请先阅读技能说明，保留已有本地修改，安装后确认可用。
+以后使用：
 
-**使用：**
+> 用 performance-review 写本月绩效考核表。
 
-> 使用 performance-review，按我提供的模板和本期工作记录整理个人考核表。写清主要工作和对应评分标准，依据事实逐项给出自评分，不预设总分；证据不足时说明缺口，备注没有必要内容就留空。考核期间：……；模板和资料位置：……
+需要时附上模板和工作材料，或告诉 Agent 文件在哪。只有特殊要求才额外说明，不用重复 Skill 中的规则。
 
-也可提供已有周报作为材料。无需先安装 weekly-report，自评建议不替代主管最终评定。
+## 更新
 
-## 安装和使用可以一起说
+> 帮我把从 TaoWhale/agent-skills 安装的技能更新到最新版。
 
-将技能名、任务和材料位置写在同一条消息里：
+安装和更新时，Agent 应检查依赖、保留已有本地修改，并确认技能可用。这些由 Agent 处理，不需要写进每次请求。
 
-> 请从 https://github.com/TaoWhale/agent-skills 安装 {技能名}，保留已有本地修改。安装后如果当前会话能使用，就用它完成以下任务：……。相关材料：……。如果需要刷新或新开会话，请告诉我下一步怎么操作。
+<details>
+<summary>可选：命令行安装</summary>
 
-## 可选：使用命令安装
-
-喜欢终端操作时，可使用开源的 [Skills CLI](https://github.com/vercel-labs/skills)，需要可用的 Node.js/npm 和 Git。
+需要 Node.js/npm 和 Git，使用 [Skills CLI](https://github.com/vercel-labs/skills)：
 
 ```bash
-# 查看可安装的技能
+# 查看技能
 npx skills add TaoWhale/agent-skills --list
 
-# 将 <skill-name> 替换为所需技能名，再执行
+# 将 <skill-name> 换成技能名
 npx skills add TaoWhale/agent-skills --skill <skill-name> -g
 ```
 
-`-g` 表示安装到当前用户范围。可加 `-a codex` 或 `-a claude-code` 指定工具；不指定时，按安装器提示选择。安装路径、刷新方式及依赖以所用工具和技能说明为准。
+`-g` 表示安装到当前用户范围。可加 `-a codex` 或 `-a claude-code` 指定工具。
 
-## 更新技能
+</details>
 
-也可以直接让 Agent 更新，不需要记住命令：
+## 资料与权限
 
-> 请检查我从 https://github.com/TaoWhale/agent-skills 安装的技能，将 {技能名} 更新到仓库最新版本。先比较本地与仓库的内容，保留我的本地修改，不直接覆盖；更新后确认可用，并说明是否需要刷新会话。
+Skill 提供处理方法，读取文件、历史会话或外部服务仍取决于当前 Agent 的工具和授权。无法访问的材料可以另行提供；对外发送或发布内容按用户授权执行。
 
-## 能力与资料范围
+仓库只保存通用方法和虚构示例，不收录真实工作材料、个人评分、客户资料、密钥或个人配置。
 
-各技能的适用范围、资料要求和依赖以对应 `SKILL.md` 为准。技能不绑定特定模型服务，也不会自动获得本地文件、历史会话或外部账号的访问权限。
+## 添加技能
 
-涉及资料读取或文件生成时，Agent 需要具备相应工具和权限。例如读取历史会话需要可用的接口或本地日志，编辑 Excel 需要相应的文件编辑能力；具体能做什么以当前环境为准。仅有浏览器聊天能力时，可以提供材料或导出文件，但安装技能不会让它直接访问电脑上的其他应用。
+每个技能放在 `skills/<skill-name>/`，提供包含 `name`、`description` 和处理方法的 `SKILL.md`。脚本、参考资料、模板及展示配置按需添加。
 
-请在任务中说明允许使用的资料范围。资料处理遵循所用 Agent 及模型服务的数据政策；对外发送、提交系统或发布内容，仍需按用户授权执行。
-
-仓库只保存通用方法和虚构示例。请勿提交真实工作材料、个人评分、原始会话、客户资料、密钥或个人配置。
-
-## 添加新技能
-
-```text
-skills/
-└── skill-name/
-    ├── SKILL.md          # 必需：名称、用途和处理方法
-    ├── agents/          # 可选：特定工具的展示配置
-    ├── scripts/         # 可选：辅助脚本
-    ├── references/      # 可选：按需读取的参考资料
-    └── assets/          # 可选：模板或其他资源
-```
-
-新技能使用独立目录，`SKILL.md` 顶部提供 `name` 和 `description`。只添加实际需要的文件，更新技能目录、CHANGELOG，并为每个技能补充可直接发给 Agent 的安装和使用示例。修改通过 Pull Request 审阅，不将个人配置或真实工作资料写进通用规则。
+新增时更新技能目录和 [CHANGELOG](CHANGELOG.md)，补充一句话安装和使用示例。具体规则放进 Skill，不让用户在提示词里重复。修改通过 Pull Request 审阅。
 
 ## 许可证
 
